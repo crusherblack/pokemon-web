@@ -1,0 +1,36 @@
+$darkColor: #18191f;
+$primaryColor: #5c16ad;
+$secondaryColor: #8c30f5;
+$whiteColor: #fff;
+$blackColor: #000;
+$grayColor: #4c4c4d;
+$mainFont: "Manrope", sans-serif;
+
+.btn {
+  font-family: "Manrope", sans-serif !important;
+  height: 40px;
+  min-width: 100px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold !important;
+  text-transform: none !important;
+}
+
+.btnPrimary {
+  background: #8c30f5 !important;
+  color: white !important;
+  &:hover {
+    background: #f1e4ff !important;
+    color: #8c30f5 !important;
+  }
+}
+
+.btnSecondary {
+  background: #f1e4ff !important;
+  color: #8c30f5 !important;
+  &:hover {
+    background: #8c30f5 !important;
+    color: white !important;
+  }
+}

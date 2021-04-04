@@ -1,0 +1,57 @@
+@import "../_utils.scss";
+
+.descriptionContainer {
+  display: flex;
+  min-height: 400px;
+  padding: 60px 10%;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.descriptionLeftContainer {
+  flex: 1;
+}
+
+.descriptionLeftTitle {
+  font-family: $mainFont;
+  font-size: 42px;
+  color: $primaryColor;
+  margin: 0;
+}
+
+.descriptionLeftText {
+  font-family: $mainFont;
+  color: $grayColor;
+  font-size: 18px;
+}
+
+.descriptionImg {
+  border-radius: 10px;
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.descriptionRightContainer {
+  padding-top: 20px;
+  flex: 1;
+}
+
+.descriptionCardContainer {
+  width: 100%;
+  padding: 0 10px 20px;
+}
+
+.customIconContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customIcon {
+  color: #5c16ad;
+  font-size: 42px !important;
+}

@@ -1,0 +1,86 @@
+@import "../_utils.scss";
+
+.heroContainer {
+  position: relative;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.backroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1509062522246-3755977927d7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fGxlYXJuaW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=100");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 150% 200px;
+  border-bottom-right-radius: 150% 200px;
+  -webkit-backdrop-filter: blur(
+    5px
+  ); /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
+
+  backdrop-filter: blur(5px); /* Supported in Chrome 76 */
+}
+
+.heroContentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+.heroInput {
+  background: $whiteColor;
+  height: 50px;
+  width: 500px;
+  border-radius: 8px;
+  padding: 8px;
+  align-self: center;
+
+  & input {
+    color: $grayColor;
+    font-weight: bold;
+    font-family: $mainFont;
+  }
+}
+
+.heroInputPrefix {
+  background: $secondaryColor;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+  border-radius: 8px;
+
+  &:hover {
+    background: $primaryColor;
+    cursor: pointer;
+  }
+}
+
+.heroTextTitle {
+  color: $whiteColor;
+  font-family: $mainFont;
+  font-size: 54px;
+  margin: 0;
+  text-align: center;
+}
+
+.heroTextSmall {
+  color: $whiteColor;
+  font-weight: 500;
+  font-family: $mainFont;
+  font-size: 20px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  text-align: center;
+}
