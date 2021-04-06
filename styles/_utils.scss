@@ -1,15 +1,20 @@
+@import "./media-queries";
+
 $darkColor: #18191f;
+$darkContrastColor: #0b0d17;
 $primaryColor: #5c16ad;
 $secondaryColor: #8c30f5;
+$softPrimaryColor: #f1e4ff;
 $whiteColor: #fff;
 $blackColor: #000;
 $grayColor: #4c4c4d;
-$mainFont: "Manrope", sans-serif;
+$grayMedium: #696969;
+$grayLight: #d9dbe1;
+$mainFont: "Manrope", sans-serif !important;
 
 .btn {
-  font-family: "Manrope", sans-serif !important;
   height: 40px;
-  min-width: 100px;
+  min-width: 100px !important;
   border: none;
   border-radius: 8px;
   font-size: 14px;
@@ -33,4 +38,16 @@ $mainFont: "Manrope", sans-serif;
     background: #8c30f5 !important;
     color: white !important;
   }
+}
+
+.marginRight3 {
+  margin-right: 15px;
+}
+
+.mr2 {
+  margin-right: 10px;
+}
+
+.mr1 {
+  margin-right: 5px;
 }

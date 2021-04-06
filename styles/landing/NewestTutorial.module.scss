@@ -1,0 +1,109 @@
+@import "../_utils.scss";
+
+.newestTutorialContainer {
+  padding: 60px 10%;
+
+  @include xl {
+    padding: 60px 20%;
+  }
+}
+
+.newestTutorialTitleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.newestTutorialTitle {
+  font-size: 42px;
+  color: $primaryColor;
+  margin: 0;
+}
+
+.newestTutorialDescription {
+  color: $grayMedium;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.cardListContainer {
+  padding: 0 3%;
+}
+
+.cardDate {
+  color: $grayMedium !important;
+  font-family: $mainFont !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  margin-top: 5px !important;
+}
+
+.cardTitleContainer {
+  display: inline-block;
+  box-sizing: border-box;
+  white-space: pre-line;
+  word-wrap: break-word;
+
+  & .cardTitle {
+    color: $primaryColor !important;
+    font-family: $mainFont !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.cardDescription {
+  display: inline-block;
+  box-sizing: border-box;
+  white-space: pre-line;
+  word-wrap: break-word;
+
+  & p {
+    color: $grayMedium !important;
+    font-family: $mainFont !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.cardActionContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cardActionButton {
+  background: rgb(241, 228, 255) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  color: $primaryColor !important;
+
+  &:hover {
+    cursor: pointer;
+    background: $primaryColor !important;
+    color: rgb(241, 228, 255) !important;
+  }
+}
+
+.cardContainer {
+  border-radius: 0 !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) !important;
+  transition: 0.3s !important;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+  }
+}

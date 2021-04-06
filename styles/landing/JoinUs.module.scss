@@ -1,0 +1,26 @@
+@import "../_utils.scss";
+
+.joinUsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 10%;
+  background-color: $softPrimaryColor;
+
+  & h1 {
+    width: 600px;
+    text-align: center;
+    font-size: 48px;
+  }
+
+  & button {
+    height: 50px;
+    width: 180px;
+    font-size: 17px;
+  }
+
+  @include xl {
+    padding: 60px 20%;
+  }
+}

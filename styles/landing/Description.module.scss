@@ -6,6 +6,10 @@
   padding: 60px 10%;
   gap: 60px;
   flex-wrap: wrap;
+
+  @include xl {
+    padding: 60px 20%;
+  }
 }
 
 .descriptionLeftContainer {
@@ -13,16 +17,15 @@
 }
 
 .descriptionLeftTitle {
-  font-family: $mainFont;
   font-size: 42px;
   color: $primaryColor;
   margin: 0;
 }
 
 .descriptionLeftText {
-  font-family: $mainFont;
-  color: $grayColor;
+  color: $grayMedium;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .descriptionImg {
@@ -40,6 +43,15 @@
 .descriptionCardContainer {
   width: 100%;
   padding: 0 10px 20px;
+
+  & h1 {
+    color: $grayColor !important;
+  }
+
+  & p {
+    color: $grayMedium !important;
+    font-weight: 500;
+  }
 }
 
 .customIconContainer {

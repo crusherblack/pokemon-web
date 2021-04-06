@@ -7,6 +7,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import CodeIcon from "@material-ui/icons/Code";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const cards = [
   {
@@ -27,7 +28,7 @@ const cards = [
     id: 3,
     title: "Tutorial Terbaru",
     description:
-      "Tutorial Javascript, Laravel, React.js, Vue.js terkini dan terbaik setiap minggunya.",
+      "Tutorial Javascript, Laravel, React.js, Vue.js terbaru dan terbaik setiap minggunya.",
     icon: <AssignmentIcon className={styles.customIcon} />,
   },
   {
@@ -49,7 +50,9 @@ const CustomCard = ({ icon, title, description, backroundColor }) => (
       {icon}
     </div>
     <h1>{title}</h1>
-    <p>{description}</p>
+    <Typography className={styles.customIconDescription}>
+      {description}
+    </Typography>
   </div>
 );
 
@@ -100,6 +103,9 @@ const DescriptionComponent = () => {
           variant="contained"
           className={[styles.btn, styles.btnPrimary].join(" ")}
           disableElevation={true}
+          style={{
+            marginLeft: "10px",
+          }}
         >
           Mulai Sekarang
         </Button>

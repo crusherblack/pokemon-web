@@ -4,8 +4,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Manrope", sans-serif;
-  scroll-behavior: smooth;
+  font-family: "Manrope", sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  scroll-behavior: smooth !important;
 }
 
 a {

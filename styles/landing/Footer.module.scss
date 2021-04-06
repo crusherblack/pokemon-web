@@ -1,0 +1,100 @@
+@import "../_utils.scss";
+
+.footerContainer {
+  padding: 60px 10%;
+  min-height: 360px;
+  background: $darkContrastColor;
+  display: flex;
+
+  @include xl {
+    padding: 60px 20%;
+  }
+}
+
+.footerLeftContainer {
+  flex: 2;
+
+  & img {
+    height: 25px;
+    margin-bottom: 35px;
+  }
+
+  & h1 {
+    color: $grayLight;
+    font-size: 14px !important;
+    font-weight: 300;
+  }
+}
+
+.footerRightContainer {
+  flex: 3;
+  display: flex;
+  gap: 80px;
+
+  & h6 {
+    font-weight: 500 !important;
+    color: $grayLight;
+    font-size: 20px;
+    margin-top: 0 !important;
+    margin-bottom: 30px !important;
+  }
+
+  & p {
+    color: $grayLight;
+
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+}
+
+.footerIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $grayColor;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  color: $grayLight !important;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.logoLeftContainer {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+}
+
+.heroInput {
+  background: $grayColor;
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+  padding: 8px;
+  align-self: center;
+
+  & input {
+    color: $grayLight;
+    font-weight: 500;
+  }
+}
+
+.heroInputPrefix {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+  border-radius: 8px;
+
+  &:hover {
+    background: $darkContrastColor;
+    cursor: pointer;
+  }
+}
