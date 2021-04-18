@@ -1,7 +1,7 @@
 @import "../_utils.scss";
 
 .newestTutorialContainer {
-  padding: 60px 10%;
+  padding: 60px 15%;
 
   @include xl {
     padding: 60px 20%;
@@ -100,10 +100,16 @@
 
 .cardContainer {
   border-radius: 0 !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
   transition: 0.3s !important;
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+  }
+
+  & img {
+    width: 100%;
+    height: 180px !important;
+    object-fit: cover !important;
   }
 }

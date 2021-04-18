@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 110px;
   align-items: center;
-  padding: 60px 10%;
   background-color: $softPrimaryColor;
 
   & h1 {
@@ -18,9 +19,5 @@
     height: 50px;
     width: 180px;
     font-size: 17px;
-  }
-
-  @include xl {
-    padding: 60px 20%;
   }
 }

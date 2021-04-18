@@ -5,6 +5,6 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   future: {
-    webpack5: true,
+    webpack5: false,
   },
 };
