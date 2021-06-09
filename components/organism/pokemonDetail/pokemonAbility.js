@@ -1,3 +1,4 @@
+import { memo } from "react";
 import PropTypes from "prop-types";
 
 const PokemonAbilityComponent = ({ pokemon }) => {
@@ -19,4 +20,4 @@ PokemonAbilityComponent.propTypes = {
   pokemon: PropTypes.object.isRequired,
 };
 
-export default PokemonAbilityComponent;
+export default memo(PokemonAbilityComponent);

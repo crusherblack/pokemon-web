@@ -1,3 +1,4 @@
+import { memo } from "react";
 import FitnessCenter from "@material-ui/icons/FitnessCenter";
 import Height from "@material-ui/icons/Height";
 import IconButton from "@material-ui/core/IconButton";
@@ -69,4 +70,4 @@ PokemonInformationComponent.propTypes = {
   setIsVisible: PropTypes.func.isRequired,
 };
 
-export default PokemonInformationComponent;
+export default memo(PokemonInformationComponent);

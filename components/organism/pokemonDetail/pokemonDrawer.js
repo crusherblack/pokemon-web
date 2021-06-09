@@ -1,3 +1,4 @@
+import { memo } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import PropTypes from "prop-types";
 
@@ -23,4 +24,4 @@ PokemonDrawerComponent.propTypes = {
   letsCatchPokemon: PropTypes.func.isRequired,
 };
 
-export default PokemonDrawerComponent;
+export default memo(PokemonDrawerComponent);

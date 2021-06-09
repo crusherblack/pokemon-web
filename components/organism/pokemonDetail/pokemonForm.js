@@ -1,3 +1,4 @@
+import { memo } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@/components/atoms/button";
 import PropTypes from "prop-types";
@@ -74,4 +75,4 @@ PokemonFormComponent.propTypes = {
   setIsResult: PropTypes.func.isRequired,
 };
 
-export default PokemonFormComponent;
+export default memo(PokemonFormComponent);

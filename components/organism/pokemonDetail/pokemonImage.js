@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 
@@ -47,4 +48,4 @@ PokemonImageComponent.propTypes = {
   setCurrentAvatar: PropTypes.func.isRequired,
 };
 
-export default PokemonImageComponent;
+export default memo(PokemonImageComponent);

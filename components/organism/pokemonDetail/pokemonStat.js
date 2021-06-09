@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ProgressBar from "@/components/molecules/progressBar";
 import PropTypes from "prop-types";
 
@@ -26,4 +27,4 @@ PokemonStatComponent.propTypes = {
   pokemon: PropTypes.object.isRequired,
 };
 
-export default PokemonStatComponent;
+export default memo(PokemonStatComponent);
