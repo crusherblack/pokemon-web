@@ -22,7 +22,7 @@ ModalComponent.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   setIsVisible: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default ModalComponent;

@@ -1,7 +1,8 @@
 import { withStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import PropTypes from "prop-types";
 
-const ProgressBar = ({ stat, value }) => {
+const ProgressBarComponent = ({ stat, value }) => {
   const BorderLinearProgress = withStyles((theme) => {
     const backrounds = {
       hp: theme.palette.green.main,
@@ -31,4 +32,9 @@ const ProgressBar = ({ stat, value }) => {
   return <BorderLinearProgress variant="determinate" value={value / 1.2} />;
 };
 
-export default ProgressBar;
+ProgressBarComponent.propTypes = {
+  stat: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+export default ProgressBarComponent;

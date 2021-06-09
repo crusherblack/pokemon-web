@@ -1,39 +1,18 @@
-import { useContext, useState } from "react";
 import Image from "next/image";
 import Remove from "@material-ui/icons/RemoveCircle";
 import Button from "@material-ui/core/Button";
+import Router from "next/router";
+import PropTypes from "prop-types";
+
 import Modal from "@/components/molecules/modal";
 
-import { PokemonContext } from "@/context/pokemonContext";
-import Router from "next/router";
-
-const MyPokemonComponent = () => {
-  const [state, dispatch] = useContext(PokemonContext);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const navigateToPokemon = (name, image) => {
-    //gak nemu response gambar jadi terpaksa taro di global store / context
-    dispatch({
-      type: "UPDATE_IMAGE",
-      payload: { image },
-    });
-
-    Router.push("/pokemon/[name]", `/pokemon/${name}`);
-  };
-
-  const removePokemon = (id, qty) => {
-    dispatch({
-      type: "REMOVE_POKEMON",
-      payload: {
-        pokemon: {
-          id,
-          qty,
-        },
-      },
-    });
-    setIsVisible(true);
-  };
-
+const MyPokemonComponent = ({
+  state,
+  isVisible,
+  navigateToPokemon,
+  removePokemon,
+  setIsVisible,
+}) => {
   return (
     <>
       <div className="my-info-container">
@@ -117,6 +96,14 @@ const MyPokemonComponent = () => {
       </div>
     </>
   );
+};
+
+MyPokemonComponent.propTypes = {
+  state: PropTypes.object.isRequired,
+  isVisible: PropTypes.bool.isRequired,
+  navigateToPokemon: PropTypes.func.isRequired,
+  removePokemon: PropTypes.func.isRequired,
+  setIsVisible: PropTypes.func.isRequired,
 };
 
 export default MyPokemonComponent;

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 
-import Button from "@material-ui/core/Button";
 import Router from "next/router";
 import { PokemonContext } from "@/context/pokemonContext";
+import Button from "@/components/atoms/button"; // coba pake emotion styled, enak juga
 
 export default function Index() {
   const [state, dispatch] = useContext(PokemonContext);
@@ -21,9 +21,7 @@ export default function Index() {
       <div className="logo-container-home">
         <img src="/images/pokemon.png" alt="logo" />
       </div>
-      <Button onClick={startGame} className="home-button">
-        Let's Begin
-      </Button>
+      <Button onClick={startGame}>Let's Begin</Button>
     </div>
   );
 }

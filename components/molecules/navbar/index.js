@@ -9,7 +9,7 @@ import Router from "next/router";
 
 import { PokemonContext } from "@/context/pokemonContext";
 
-const index = () => {
+const NavbarComponent = () => {
   const [state, _d] = useContext(PokemonContext);
 
   return (
@@ -52,4 +52,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default NavbarComponent;

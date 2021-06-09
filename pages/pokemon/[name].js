@@ -1,25 +1,23 @@
-import { useContext, useState, useEffect } from "react";
-import Layout from "@/components/templates/layout";
-import { client } from "@/utils/apollo/client";
-import Image from "next/image";
-import Chip from "@material-ui/core/Chip";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useContext, useState } from "react";
+
 import Modal from "@/components/molecules/modal";
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-import FitnessCenter from "@material-ui/icons/FitnessCenter";
-import Height from "@material-ui/icons/Height";
+import Layout from "@/components/templates/layout";
+import PokemonInformation from "@/components/organism/pokemonDetail/pokemonInformation";
+import PokemonStat from "@/components/organism/pokemonDetail/pokemonStat";
+import PokemonAbility from "@/components/organism/pokemonDetail/pokemonAbility";
+import PokemonMove from "@/components/organism/pokemonDetail/pokemonMove";
+import PokemonImage from "@/components/organism/pokemonDetail/pokemonImage";
+import PokemonForm from "@/components/organism/pokemonDetail/pokemonForm";
+import PokemonInfo from "@/components/organism/pokemonDetail/pokemonInfo";
+import PokemonDrawer from "@/components/organism/pokemonDetail/pokemonDrawer";
 
-import { GET_POKEMON } from "@/utils/apollo/constant";
 import { PokemonContext } from "@/context/pokemonContext";
-import ProgressBar from "@/components/molecules/progressBar";
+import { client } from "@/utils/apollo/client";
+import { GET_POKEMON } from "@/utils/apollo/constant";
 
 const validationSchema = yup.object({
   pokemonName: yup
@@ -46,7 +44,7 @@ const PokemonDetailPage = ({ pokemon }) => {
       pokemonName: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       dispatch({
         type: "ADD_POKEMON",
         payload: {
@@ -59,7 +57,8 @@ const PokemonDetailPage = ({ pokemon }) => {
       });
       setIsResult(false);
       setInfo(true);
-      setPokemonName("");
+      setPokemonName(values.pokemonName);
+      resetForm();
     },
   });
 
@@ -96,237 +95,47 @@ const PokemonDetailPage = ({ pokemon }) => {
 
   const closeInfo = () => {
     setInfo(false);
+    setPokemonName("");
   };
 
   return (
     <Layout withContainer>
       <section className="detail-pokemon-container">
-        <section className="info-pokemon-container">
-          <section>
-            <section className="info-container">
-              {state.currentImage && (
-                <Button onClick={() => setIsVisible(true)}>
-                  <div className="avatar">
-                    <Image
-                      src={state.currentImage}
-                      alt={pokemon.name}
-                      width={100}
-                      height={100}
-                      layout="responsive"
-                    />
-                  </div>
-                </Button>
-              )}
-              <section className="info">
-                <h1 className="text-capitalize">{pokemon.name}</h1>
-                <div className="height-width-container">
-                  <div className="height-width">
-                    <Height fontSize="small" />
-                    <h5 className="text-capitalize">{pokemon.height} Inch</h5>
-                  </div>
-                  <div className="height-width">
-                    <FitnessCenter fontSize="small" />
-                    <h5 className="text-capitalize">{pokemon.weight} Kg</h5>
-                  </div>
-                </div>
-                <div className="type">
-                  {pokemon.types.map((type, index) => (
-                    <Chip
-                      label={type.type.name}
-                      variant="outlined"
-                      size="small"
-                      key={index}
-                    />
-                  ))}
-                </div>
-              </section>
-            </section>
-          </section>
-          <section className="pokeball-container">
-            <Button onClick={() => setIsOpen(true)}>
-              <img
-                src="/images/pokebal.png"
-                alt="catchMe!!!"
-                className="avatar"
-              />
-            </Button>
-          </section>
-        </section>
-        <section className="detail-container">
-          <h4 className="text-capitalize">Base Stats</h4>
-          <div className="stat">
-            {pokemon.stats.map((stat, index) => (
-              <div key={stat.stat.name}>
-                <h5>{stat.stat.name}</h5>
-                <ProgressBar
-                  colorPrimary="red"
-                  colorSecondary="green"
-                  stat={stat.stat.name}
-                  value={stat.base_stat}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-        <section className="abilities-container">
-          <h4 className="text-capitalize">Abilities</h4>
-          <div className="abilities-card-container">
-            {pokemon.abilities.map((abilitiy, index) => (
-              <div className="card" key={index}>
-                <h4 className="text-capitalize">{abilitiy.ability.name}</h4>
-              </div>
-            ))}
-          </div>
-        </section>
-        <section className="moves-container">
-          <Accordion elevation={0} className="abilities-container">
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <h4 className="text-capitalize">Moves</h4>
-            </AccordionSummary>
-            <AccordionDetails>
-              <div>
-                {pokemon.moves.map((move, index) => (
-                  <Chip
-                    label={move.move.name}
-                    variant="default"
-                    size="small"
-                    key={index}
-                    style={{
-                      marginRight: "5px",
-                      marginBottom: "5px",
-                    }}
-                  />
-                ))}
-              </div>
-            </AccordionDetails>
-          </Accordion>
-        </section>
+        <PokemonInformation
+          state={state}
+          pokemon={pokemon}
+          setIsOpen={setIsOpen}
+          setIsVisible={setIsVisible}
+        />
+        <PokemonStat pokemon={pokemon} />
+        <PokemonAbility pokemon={pokemon} />
+        <PokemonMove pokemon={pokemon} />
         <Modal
           isVisible={isVisible}
           setIsVisible={setIsVisible}
           title={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
         >
-          <div className="modal-content">
-            <div className="picture-container">
-              <Image
-                src={currentAvatar}
-                alt={currentAvatar}
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-            <div className="picture-small">
-              <img
-                src={pokemon.sprites.front_default}
-                alt={pokemon.sprites.front_default}
-                className="child"
-                onClick={() => setCurrentAvatar(pokemon.sprites.front_default)}
-              />
-              <img
-                src={pokemon.sprites.back_default}
-                alt={pokemon.sprites.back_default}
-                className="child"
-                onClick={() => setCurrentAvatar(pokemon.sprites.back_default)}
-              />
-
-              <img
-                src={pokemon.sprites.front_shiny}
-                alt={pokemon.sprites.front_shiny}
-                className="child"
-                onClick={() => setCurrentAvatar(pokemon.sprites.front_shiny)}
-              />
-              <img
-                src={pokemon.sprites.back_shiny}
-                alt={pokemon.sprites.back_shiny}
-                className="child"
-                onClick={() => setCurrentAvatar(pokemon.sprites.back_shiny)}
-              />
-            </div>
-          </div>
+          <PokemonImage
+            pokemon={pokemon}
+            currentAvatar={currentAvatar}
+            setCurrentAvatar={setCurrentAvatar}
+          />
         </Modal>
         <Modal isVisible={isResult} setIsVisible={setIsResult}>
-          {isPokeballZero ? (
-            <div className="result-container">
-              <img src="/images/zeropokeball.png" alt="zero" />
-              <h2 className="text-center font-weight-bold text-danger ">
-                You Are Run Out Of Pokeball
-              </h2>
-              <h2
-                className="text-center font-weight-bold text-success"
-                onClick={addPokeBall}
-              >
-                <a href="https://www.youtube.com/c/tahucoding" target="_blank">
-                  Still want more? Subscribe Tahu Coding
-                </a>
-              </h2>
-            </div>
-          ) : isCatch ? (
-            <>
-              <div className="result-container">
-                <img src="/images/catch.png" alt="catch" />
-                <h2 className="text-center font-weight-bold ">Success Catch</h2>
-              </div>
-              <div>
-                <form onSubmit={formik.handleSubmit}>
-                  <TextField
-                    id="outlined-basic"
-                    label="Give Your Pokemon's Name"
-                    variant="outlined"
-                    color="secondary"
-                    name="pokemonName"
-                    className="input"
-                    value={formik.values.pokemonName}
-                    onChange={formik.handleChange}
-                    error={
-                      formik.touched.pokemonName &&
-                      Boolean(formik.errors.pokemonName)
-                    }
-                    helperText={
-                      formik.touched.pokemonName && formik.errors.pokemonName
-                    }
-                  />
-                  <Button
-                    type="submit"
-                    className="home-button"
-                    style={{
-                      width: "100%",
-                      marginTop: "15px",
-                    }}
-                  >
-                    Addopt Pokemon
-                  </Button>
-                </form>
-              </div>
-            </>
-          ) : (
-            <div
-              className="result-container"
-              onClick={() => setIsResult(false)}
-            >
-              <img src="/images/notcatch.jpg" alt="fail" />
-              <h2 className="text-center font-weight-bold ">Fail To Catch</h2>
-            </div>
-          )}
+          <PokemonForm
+            isPokeballZero={isPokeballZero}
+            addPokeBall={addPokeBall}
+            isCatch={isCatch}
+            formik={formik}
+            setIsResult={setIsResult}
+          />
         </Modal>
         <Modal isVisible={info} setIsVisible={setInfo}>
-          <div className="success-catched-container" onClick={closeInfo}>
-            <div className="picture-container">
-              <Image
-                src={currentAvatar}
-                alt={currentAvatar}
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-            <h2 className="text-success">Success</h2>
-            <h2>Hey from {pokemonName}</h2>
-          </div>
+          <PokemonInfo
+            closeInfo={closeInfo}
+            currentAvatar={currentAvatar}
+            pokemonName={pokemonName}
+          />
         </Modal>
         <Drawer
           anchor="bottom"
@@ -334,18 +143,7 @@ const PokemonDetailPage = ({ pokemon }) => {
           onClose={() => setIsOpen(false)}
           className="drawer"
         >
-          <div className="game-container">
-            <div className="pokeball-count">
-              <img src="/images/pokebal.png" className="poke-count" />
-              <h3>{state.pokeball} Left</h3>
-            </div>
-            <h1 className="text-center font-weight-bold ">Catch Me !!!</h1>
-            <Button onClick={letsCatchPokemon}>
-              <div className="stage">
-                <img src="/images/pokebal.png" className="box bounce-7" />
-              </div>
-            </Button>
-          </div>
+          <PokemonDrawer state={state} letsCatchPokemon={letsCatchPokemon} />
         </Drawer>
       </section>
     </Layout>
@@ -353,6 +151,7 @@ const PokemonDetailPage = ({ pokemon }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
+  //implementasi SSR
   const name = ctx.query.name;
   const { data } = await client.query({
     query: GET_POKEMON,
