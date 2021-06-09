@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useLazyQuery } from "@apollo/client";
 
 import Layout from "@/components/templates/layout";
@@ -62,11 +62,13 @@ const PokemonListPage = () => {
     setOffset((prev) => prev + PAGE_LIMIT);
   };
 
+  const memoizedPokemonsData = useMemo(() => pokemonsData, [pokemonsData]);
+
   return (
     <Layout>
       <PokemonList
         pokemonsLoading={pokemonsLoading}
-        pokemonsData={pokemonsData}
+        pokemonsData={memoizedPokemonsData}
         isLastPage={isLastPage}
         isFirstLoad={isFirstLoad}
         pokemonsError={pokemonsError}

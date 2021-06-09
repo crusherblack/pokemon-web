@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -56,4 +56,4 @@ CardComponent.propTypes = {
   pokemon: PropTypes.object.isRequired,
 };
 
-export default CardComponent;
+export default memo(CardComponent);
