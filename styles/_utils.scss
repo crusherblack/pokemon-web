@@ -22,6 +22,10 @@ $mainFont: "Manrope", sans-serif !important;
   text-transform: none !important;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .btnPrimary {
   background: #8c30f5 !important;
   color: white !important;
@@ -40,7 +44,77 @@ $mainFont: "Manrope", sans-serif !important;
   }
 }
 
-.marginRight3 {
+//display
+
+.displayNone {
+  display: none;
+}
+
+.displayVisible {
+  display: block;
+}
+
+//flex
+
+.dFlex {
+  display: flex;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+//margin-utils
+
+.mb3 {
+  margin-bottom: 15px;
+}
+
+.mb2 {
+  margin-bottom: 10px;
+}
+
+.mb1 {
+  margin-bottom: 5px;
+}
+
+.mt3 {
+  margin-top: 15px;
+}
+
+.mt2 {
+  margin-top: 10px;
+}
+
+.mt1 {
+  margin-top: 5px;
+}
+
+.ml3 {
+  margin-left: 15px;
+}
+
+.ml2 {
+  margin-left: 10px;
+}
+
+.ml1 {
+  margin-left: 5px;
+}
+
+.mr3 {
   margin-right: 15px;
 }
 
@@ -50,4 +124,97 @@ $mainFont: "Manrope", sans-serif !important;
 
 .mr1 {
   margin-right: 5px;
+}
+
+//my custom heading
+
+.headingLarge {
+  font-size: 42px;
+  margin: 0;
+}
+
+.headingMedium {
+  font-size: 36px;
+  margin: 0;
+}
+
+.headingSmall {
+  font-size: 24px;
+  margin: 0;
+}
+
+//my custom text color
+
+.textPrimary {
+  color: $primaryColor;
+}
+
+.textPrimarySoft {
+  color: $softPrimaryColor;
+}
+
+.textSecondary {
+  color: $primaryColor;
+}
+
+.textBlack {
+  color: $blackColor;
+}
+
+.textGray {
+  color: $grayColor;
+}
+
+.textGrayMedium {
+  color: $grayMedium;
+}
+
+.textGrayLight {
+  color: $grayLight;
+}
+
+.textWhite {
+  color: $whiteColor;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+//my custom bg color
+
+.bgPrimary {
+  background: $primaryColor;
+}
+
+.bgPrimarySoft {
+  background: $softPrimaryColor;
+}
+
+.bgSecondary {
+  background: $primaryColor;
+}
+
+.bgBlack {
+  background: $blackColor;
+}
+
+.bgGray {
+  background: $grayColor;
+}
+
+.bgGrayMedium {
+  background: $grayMedium;
+}
+
+.bgGrayLight {
+  background: $grayLight;
+}
+
+.bgWhite {
+  background: $whiteColor;
 }

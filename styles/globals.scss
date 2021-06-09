@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap");
+@import "./utils";
 
 html,
 body {
@@ -16,6 +17,501 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.home-content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  background: url("/images/home.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+}
+
+.home-button {
+  background: #52b69a !important;
+  border: 3px solid yellow !important;
+  padding: 10px 20px !important;
+  min-width: 190px !important;
+  color: yellow !important;
+  font-weight: bold !important;
+  font-size: 20px !important;
+  border-radius: 10px !important;
+  text-transform: capitalize !important;
+}
+
+.navbar {
+  background: white !important;
+  color: $darkColor !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
+
+  .toolbar {
+    justify-content: space-between !important;
+  }
+}
+
+.container {
+  padding: 10px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: white;
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+}
+
+.logo-container-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+
+  img {
+    width: 100px;
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  height: 100%;
+
+  img {
+    width: 100px;
+  }
+}
+
+.pokemon-list-container {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+  margin: 0 !important;
+  width: 100% !important;
+
+  @include lt-sm {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.card {
+  width: 100%;
+  border-radius: 15px !important;
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  transition: 0.3s !important;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .img {
+    height: 100px !important;
+    object-fit: contain;
+  }
+}
+
+.detail-pokemon-container {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+
+  @include lt-sm {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.info-pokemon-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokeball-container {
+  display: flex;
+  align-items: flex-end;
+
+  .avatar {
+    height: 80px !important;
+    width: 80px !important;
+    background: $grayLight;
+    border-radius: 50%;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.info-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: $grayColor;
+  margin-top: 10px;
+
+  .avatar {
+    height: 80px !important;
+    width: 80px !important;
+    background: $grayLight;
+    border-radius: 50%;
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+
+    .height-width-container {
+      display: flex;
+      gap: 5px;
+    }
+
+    .height-width {
+      display: flex;
+      font-size: 16px !important;
+    }
+
+    h1 {
+      font-size: 18px;
+    }
+
+    h1,
+    h5 {
+      margin: 0;
+    }
+
+    .type {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
+
+.detail-container {
+  color: $grayColor;
+  margin-top: 15px;
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h5,
+  h4 {
+    margin: 5px 0;
+    text-transform: capitalize;
+  }
+}
+
+.abilities-container {
+  margin-top: 15px;
+  color: $grayColor;
+
+  h4 {
+    margin: 10px 0;
+  }
+
+  .abilities-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #0081a7;
+    border-radius: 5px !important;
+    color: white;
+    background: #52b69a;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.moves-container {
+  margin-top: 15px;
+
+  h4 {
+    margin: 10px 0;
+  }
+
+  .abilities-container {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+    transition: 0.3s !important;
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+}
+
+.picture-container {
+  width: 100%;
+  height: 100%;
+}
+
+.picture-small {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+
+  .child {
+    flex: 1;
+    width: 50px;
+    border: 1px solid $grayLight;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+}
+
+.modal-content {
+  background: white;
+  height: 100%;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.drawer {
+  .MuiDrawer-paperAnchorBottom {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+  }
+}
+
+.game-container {
+  padding: 10px;
+  min-height: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include lt-sm {
+    min-height: 200px;
+  }
+}
+
+.pokeball-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.poke-count {
+  width: 30px;
+  height: 30px;
+}
+
+.result-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+
+  img {
+    width: 250px;
+    height: 100%;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.input {
+  margin-top: 15px !important;
+  width: 100% !important;
+}
+
+.stage {
+  border-bottom: 3px solid #444;
+  display: flex;
+  height: 200px;
+  width: 100%;
+}
+
+.box {
+  align-self: flex-end;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  height: 100px;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+  width: 100px;
+}
+
+.bounce-7 {
+  animation-name: bounce-7;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes bounce-7 {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.my-pokemon-container {
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 15px !important;
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1) !important;
+    transition: 0.3s !important;
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .card-info {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    h3 {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .img {
+      height: 80px !important;
+      width: 80px !important;
+      background: $grayLight;
+      border-radius: 50%;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.my-info-container {
+  background: $grayLight;
+  border-radius: 5px;
+  padding: 10px;
+
+  h1 {
+    margin: 0 5px 0 0;
+  }
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.empty-pokemon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  min-height: 55vh;
+
+  img {
+    width: 100px;
+  }
+}
+
+.success-catched-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.text-title {
+  font-size: 18px;
+  color: $darkColor;
+}
+
+.text-success {
+  color: green;
+}
+
+.text-danger {
+  color: red;
 }
 
 /* custom scrollbar */

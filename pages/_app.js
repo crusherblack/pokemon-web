@@ -1,11 +1,14 @@
-import { useEffect, Fragment } from "react";
+import { useEffect } from "react";
 
+import { ApolloProvider, useQuery, gql } from "@apollo/client";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import "../styles/globals.scss";
 
+import { PokemonContextProvider } from "@/context/pokemonContext";
+import { client } from "../utils/apollo/client";
 import theme from "../utils/theme";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -17,7 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <Fragment>
+    <ApolloProvider client={client}>
       <Head>
         <title>My page</title>
         <meta
@@ -27,9 +30,11 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <PokemonContextProvider>
+          <Component {...pageProps} />
+        </PokemonContextProvider>
       </ThemeProvider>
-    </Fragment>
+    </ApolloProvider>
   );
 };
 
