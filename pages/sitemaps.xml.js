@@ -4,6 +4,7 @@ import { client } from "@/utils/apollo/client";
 const sitemapXml = (pokemons) => {
   let latestPost = 0;
   let projectsXML = "";
+  //
 
   pokemons.map((pokemon) => {
     const generatedDate = new Date();
