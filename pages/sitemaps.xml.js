@@ -4,7 +4,6 @@ import { client } from "@/utils/apollo/client";
 const sitemapXml = (pokemons) => {
   let latestPost = 0;
   let projectsXML = "";
-  //test
 
   pokemons.map((pokemon) => {
     const generatedDate = new Date();
@@ -53,4 +52,4 @@ const Sitemap = () => {
   };
 };
 
-export default withAuthSync(Sitemap, "landing");
+export default Sitemap;
