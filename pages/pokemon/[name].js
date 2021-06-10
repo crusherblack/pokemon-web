@@ -1,19 +1,55 @@
 import { useContext, useState } from "react";
 
-import Modal from "@/components/molecules/modal";
-import Drawer from "@material-ui/core/Drawer";
-import { useFormik } from "formik";
+const Drawer = dynamic(() => import("@material-ui/core/Drawer"), {
+  ssr: false,
+});
+const useFormik = dynamic(() => import("formik").then((mod) => mod.useFormik), {
+  ssr: false,
+});
 import * as yup from "yup";
+import dynamic from "next/dynamic";
 
-import Layout from "@/components/templates/layout";
-import PokemonInformation from "@/components/organism/pokemonDetail/pokemonInformation";
-import PokemonStat from "@/components/organism/pokemonDetail/pokemonStat";
-import PokemonAbility from "@/components/organism/pokemonDetail/pokemonAbility";
-import PokemonMove from "@/components/organism/pokemonDetail/pokemonMove";
-import PokemonImage from "@/components/organism/pokemonDetail/pokemonImage";
-import PokemonForm from "@/components/organism/pokemonDetail/pokemonForm";
-import PokemonInfo from "@/components/organism/pokemonDetail/pokemonInfo";
-import PokemonDrawer from "@/components/organism/pokemonDetail/pokemonDrawer";
+const Modal = dynamic(() => import("@/components/molecules/modal"));
+const Layout = dynamic(() => import("@/components/templates/layout"));
+const PokemonInformation = dynamic(() =>
+  import("@/components/organism/pokemonDetail/pokemonInformation")
+);
+const PokemonStat = dynamic(() =>
+  import("@/components/organism/pokemonDetail/pokemonStat")
+);
+const PokemonAbility = dynamic(
+  () => import("@/components/organism/pokemonDetail/pokemonAbility"),
+  {
+    ssr: false,
+  }
+);
+const PokemonMove = dynamic(
+  () => import("@/components/organism/pokemonDetail/pokemonMove"),
+  {
+    ssr: false,
+  }
+);
+const PokemonImage = dynamic(
+  () => import("@/components/organism/pokemonDetail/pokemonImage"),
+  {
+    ssr: false,
+  }
+);
+const PokemonForm = dynamic(
+  () => import("@/components/organism/pokemonDetail/pokemonForm"),
+  {
+    ssr: false,
+  }
+);
+const PokemonInfo = dynamic(() =>
+  import("@/components/organism/pokemonDetail/pokemonInfo")
+);
+const PokemonDrawer = dynamic(
+  () => import("@/components/organism/pokemonDetail/pokemonDrawer"),
+  {
+    ssr: false,
+  }
+);
 
 import { PokemonContext } from "@/context/pokemonContext";
 import { client } from "@/utils/apollo/client";

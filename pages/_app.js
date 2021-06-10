@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 
+import dynamic from "next/dynamic";
 import { ApolloProvider } from "@apollo/client";
 import Head from "next/head";
-import CssBaseline from "@material-ui/core/CssBaseline";
+const CssBaseline = dynamic(() => import("@material-ui/core/CssBaseline"));
 import { ThemeProvider } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 

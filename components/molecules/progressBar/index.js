@@ -29,7 +29,12 @@ const ProgressBarComponent = ({ stat, value }) => {
     };
   })(LinearProgress);
 
-  return <BorderLinearProgress variant="determinate" value={value / 1.2} />;
+  return (
+    <BorderLinearProgress
+      variant="determinate"
+      value={value >= 100 ? 100 : value / 1.2}
+    />
+  );
 };
 
 ProgressBarComponent.propTypes = {
