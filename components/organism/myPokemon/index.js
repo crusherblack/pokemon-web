@@ -43,7 +43,7 @@ const MyPokemonComponent = ({
                         navigateToPokemon(pokemon.name, pokemon.image)
                       }
                     >
-                      <div className="img">
+                      <div className="mr-2 img">
                         <Image
                           src={pokemon.image}
                           alt={pokemon.name}

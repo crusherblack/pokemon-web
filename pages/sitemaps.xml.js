@@ -7,7 +7,7 @@ const sitemapXml = (pokemons) => {
 
   pokemons.map((pokemon) => {
     const generatedDate = new Date();
-    const postDate = date.toISOString();
+    const postDate = generatedDate.toISOString();
 
     //
 

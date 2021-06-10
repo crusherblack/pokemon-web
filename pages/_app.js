@@ -33,12 +33,13 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href="https://pokeapi.co/favicon.ico" />
       </Head>
       <DefaultSeo {...SEO} />
-      <PokemonContextProvider>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <PokemonContextProvider>
           <Component {...pageProps} />
-        </ThemeProvider>
-      </PokemonContextProvider>
+        </PokemonContextProvider>
+      </ThemeProvider>
     </ApolloProvider>
   );
 };
