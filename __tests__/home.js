@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import Enzyme, { mount } from "enzyme";
 
-import Home from "../index";
-import { PokemonContextProvider } from "../../context/pokemonContext";
+import Home from "../pages/index";
+import { PokemonContextProvider } from "@/context/pokemonContext";
 
 Enzyme.configure({ adapter: new Adapter() });
 
