@@ -4,7 +4,6 @@ import { client } from "@/utils/apollo/client";
 const sitemapXml = (pokemons) => {
   let latestPost = 0;
   let projectsXML = "";
-  //
 
   pokemons.map((pokemon) => {
     const generatedDate = new Date();
@@ -39,18 +38,19 @@ const sitemapXml = (pokemons) => {
     </urlset>`;
 };
 
-const Sitemap = () => {
-  Sitemap.getInitialProps = async (context) => {
-    const { data } = await client.query({
-      query: GET_POKEMONS,
-    });
+const Sitemap = () => {};
 
-    const { pokemons } = data;
+export const getServerSideProps = async (ctx) => {
+  const { res } = ctx;
+  const { data } = await client.query({
+    query: GET_POKEMONS,
+  });
 
-    res.setHeader("Content-Type", "text/xml");
-    res.write(sitemapXml(pokemons));
-    res.end();
-  };
+  const { pokemons } = data;
+
+  res.setHeader("Content-Type", "text/xml");
+  res.write(sitemapXml(pokemons.results));
+  res.end();
 };
 
 export default Sitemap;
