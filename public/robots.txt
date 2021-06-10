@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://pokemon-web-888fon0wi-crusherblack.vercel.app/sitemap.xml

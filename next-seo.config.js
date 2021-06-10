@@ -1,6 +1,6 @@
 const description =
   "Pokemon Game adalah aplikasi yang sederhana untuk bermain game Pokemon dalam bentuk Web";
-const url = "www.tahucoding.com";
+const url = "https://pokemon-web-888fon0wi-crusherblack.vercel.app/";
 const site_name = "Pokemon Game";
 const title = site_name;
 

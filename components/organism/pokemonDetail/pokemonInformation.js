@@ -17,7 +17,13 @@ const PokemonInformationComponent = ({
       <section>
         <section className="info-container">
           {state.currentImage && (
-            <IconButton onClick={() => setIsVisible(true)}>
+            <IconButton
+              onClick={() => setIsVisible(true)}
+              style={{
+                padding: 0,
+                marginRight: "5px",
+              }}
+            >
               <div className="avatar">
                 <Image
                   src={state.currentImage}
@@ -56,7 +62,12 @@ const PokemonInformationComponent = ({
         </section>
       </section>
       <section className="pokeball-container">
-        <IconButton onClick={() => setIsOpen(true)}>
+        <IconButton
+          onClick={() => setIsOpen(true)}
+          style={{
+            padding: 0,
+          }}
+        >
           <img src="/images/pokebal.webp" alt="catchMe!!!" className="avatar" />
         </IconButton>
       </section>
