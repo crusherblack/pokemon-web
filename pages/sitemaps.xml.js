@@ -59,6 +59,10 @@ export const getServerSideProps = async (ctx) => {
   res.setHeader("Content-Type", "text/xml");
   res.write(sitemapXml(pokemons.results));
   res.end();
+
+  return {
+    props: {},
+  };
 };
 
 export default Sitemap;
