@@ -30,11 +30,11 @@ const PokemonInformationComponent = ({
             </IconButton>
           )}
           <section className="info">
-            <h1 className="text-capitalize">{pokemon.name}</h1>
-            <div className="height-width-container">
-              <div className="height-width">
+            <h1 className="mb-1 text-capitalize">{pokemon.name}</h1>
+            <div className="mb-1 height-width-container">
+              <div className="mr-1 height-width">
                 <Height fontSize="small" />
-                <h5 className="text-capitalize">{pokemon.height} Inch</h5>
+                <h5 className=" text-capitalize">{pokemon.height} Inch</h5>
               </div>
               <div className="height-width">
                 <FitnessCenter fontSize="small" />
@@ -48,6 +48,7 @@ const PokemonInformationComponent = ({
                   variant="outlined"
                   size="small"
                   key={index}
+                  className="mr-1"
                 />
               ))}
             </div>

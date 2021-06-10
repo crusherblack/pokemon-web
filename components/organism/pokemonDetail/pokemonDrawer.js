@@ -6,7 +6,7 @@ const PokemonDrawerComponent = ({ state, letsCatchPokemon }) => {
   return (
     <div className="game-container">
       <div className="pokeball-count">
-        <img src="/images/pokebal.webp" className="poke-count" />
+        <img src="/images/pokebal.webp" className="mr-1 poke-count" />
         <h3>{state.pokeball} Left</h3>
       </div>
       <h1 className="text-center font-weight-bold ">Catch Me !!!</h1>

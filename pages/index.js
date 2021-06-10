@@ -40,9 +40,13 @@ const HomePage = () => {
           <div className="logo-container-home">
             <img src="/images/pokemon.webp" alt="logo" />
           </div>
-          <Button onClick={startGame}>Let's Begin</Button>
+          <Button onClick={startGame} className="mt-3">
+            Let's Begin
+          </Button>
 
-          <Button onClick={navigateToAmp}>Switch To AMP</Button>
+          <Button onClick={navigateToAmp} className="mt-3">
+            Switch To AMP
+          </Button>
         </Layout>
       ) : (
         <AmpHome startGame={startGame} />

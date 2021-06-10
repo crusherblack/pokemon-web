@@ -19,31 +19,6 @@ a {
   box-sizing: border-box;
 }
 
-.home-content {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column;
-  background: url("/images/home.jpg") no-repeat;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-}
-
-.home-button {
-  background: #52b69a !important;
-  border: 3px solid yellow !important;
-  padding: 10px 20px !important;
-  min-width: 190px !important;
-  color: yellow !important;
-  font-weight: bold !important;
-  font-size: 20px !important;
-  border-radius: 10px !important;
-  text-transform: capitalize !important;
-}
-
 .navbar {
   background: white !important;
   color: $darkColor !important;
@@ -181,7 +156,6 @@ a {
 
 .info-container {
   display: flex;
-  gap: 10px;
   align-items: center;
   color: $grayColor;
   margin-top: 10px;
@@ -197,11 +171,9 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 5px;
 
     .height-width-container {
       display: flex;
-      gap: 5px;
     }
 
     .height-width {
@@ -222,7 +194,6 @@ a {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      gap: 5px;
     }
   }
 }
@@ -233,7 +204,6 @@ a {
   .stat {
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 
   h5,
@@ -296,12 +266,12 @@ a {
 
 .picture-small {
   display: flex;
-  gap: 5px;
   margin-bottom: 10px;
 
   .child {
     flex: 1;
     width: 50px;
+    height: 100%;
     border: 1px solid $grayLight;
 
     &:hover {
@@ -342,7 +312,6 @@ a {
 .pokeball-count {
   display: flex;
   align-items: center;
-  gap: 5px;
 
   h3 {
     margin: 0;
@@ -360,7 +329,6 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
 
   img {
     width: 250px;
@@ -440,7 +408,6 @@ a {
 
     .card-info {
       display: flex;
-      gap: 10px;
       align-items: center;
     }
 
@@ -481,7 +448,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   flex-direction: column;
   min-height: 55vh;
 
@@ -495,24 +461,10 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 
   h2 {
     margin: 0;
   }
-}
-
-.text-title {
-  font-size: 18px;
-  color: $darkColor;
-}
-
-.text-success {
-  color: green;
-}
-
-.text-danger {
-  color: red;
 }
 
 /* custom scrollbar */

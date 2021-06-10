@@ -5,6 +5,7 @@ import Router from "next/router";
 import PropTypes from "prop-types";
 
 import Modal from "@/components/molecules/modal";
+import Button2 from "@/components/atoms/button";
 
 const MyPokemonComponent = ({
   state,
@@ -24,7 +25,7 @@ const MyPokemonComponent = ({
           {state.catchedPokemons.length}
         </h3>
         <div className="pokeball-count">
-          <img src="/images/pokebal.webp" className="poke-count" />
+          <img src="/images/pokebal.webp" className="mr-1 poke-count" />
           <h3>{state.pokeball} Left</h3>
         </div>
       </div>
@@ -42,7 +43,7 @@ const MyPokemonComponent = ({
                         navigateToPokemon(pokemon.name, pokemon.image)
                       }
                     >
-                      <div className="img">
+                      <div className="mr-2 img">
                         <Image
                           src={pokemon.image}
                           alt={pokemon.name}
@@ -74,12 +75,12 @@ const MyPokemonComponent = ({
         {state.catchedPokemons.length <= 0 && (
           <div className="empty-pokemon-container">
             <img src="/images/empty.webp" alt="empty" />
-            <Button
+            <Button2
               onClick={() => Router.push("/pokemon")}
-              className="home-button"
+              className="mt-2 home-button"
             >
               Let's Catch
-            </Button>
+            </Button2>
           </div>
         )}
         <Modal isVisible={isVisible} setIsVisible={setIsVisible}>

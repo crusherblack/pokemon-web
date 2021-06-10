@@ -34,7 +34,6 @@ const AmpHomeComponent = () => {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            gap: 15px;
             background: url("/images/home.png") no-repeat;
             background-size: cover;
             background-position: center center;
