@@ -9,13 +9,13 @@ const sitemapXml = (pokemons) => {
     const generatedDate = new Date();
     const postDate = generatedDate.toISOString();
 
-    //
+    const URL = "https://pokemon-web-mu.vercel.app";
 
     if (!latestPost || postDate > latestPost) {
       latestPost = postDate;
     }
 
-    const projectURL = `https://pokemon-web-888fon0wi-crusherblack.vercel.app/${pokemon.name}/`;
+    const projectURL = `${URL}/pokemon/${pokemon.name}`;
     projectsXML += `
       <url>
         <loc>${projectURL}</loc>
@@ -27,12 +27,12 @@ const sitemapXml = (pokemons) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
         <url>
-            <loc>https://pokemon-web-888fon0wi-crusherblack.vercel.app/</loc>
+            <loc>${URL}/</loc>
             <lastmod>2020-03-12T09:35:12+00:00</lastmod>
             <priority>1.00</priority>
         </url>
         <url>
-            <loc>https://pokemon-web-888fon0wi-crusherblack.vercel.app/pokemon</loc>
+            <loc>${URL}/pokemon</loc>
             <lastmod>2020-03-12T09:35:12+00:00</lastmod>
             <priority>0.80</priority>
         </url>
