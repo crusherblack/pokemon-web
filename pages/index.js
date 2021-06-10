@@ -21,7 +21,7 @@ const HomePage = () => {
   };
 
   const navigateToAmp = () => {
-    Router.push("/home-amp");
+    window.location = "/home-amp";
   };
 
   return (
