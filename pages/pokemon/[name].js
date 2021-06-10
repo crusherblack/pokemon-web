@@ -3,9 +3,7 @@ import { useContext, useState } from "react";
 const Drawer = dynamic(() => import("@material-ui/core/Drawer"), {
   ssr: false,
 });
-const useFormik = dynamic(() => import("formik").then((mod) => mod.useFormik), {
-  ssr: false,
-});
+import { useFormik } from "formik";
 import * as yup from "yup";
 import dynamic from "next/dynamic";
 
