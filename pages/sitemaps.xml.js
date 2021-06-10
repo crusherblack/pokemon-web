@@ -9,6 +9,8 @@ const sitemapXml = (pokemons) => {
     const generatedDate = new Date();
     const postDate = date.toISOString();
 
+    //
+
     if (!latestPost || postDate > latestPost) {
       latestPost = postDate;
     }
