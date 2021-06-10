@@ -1,10 +1,19 @@
 import { useContext } from "react";
 
 import Router from "next/router";
-import { PokemonContext } from "@/context/pokemonContext";
-import Button from "@/components/atoms/button"; // coba pake emotion styled, enak juga
+import Head from "next/head";
+import { useAmp } from "next/amp";
 
-export default function Index() {
+import Button from "@/components/atoms/button/index";
+import Layout from "@/components/templates/homeLayout";
+
+import AmpHome from "@/components/amp/home";
+import { PokemonContext } from "@/context/pokemonContext";
+
+export const config = { amp: "hybrid" };
+
+const HomePage = () => {
+  const isAmp = useAmp();
   const [state, dispatch] = useContext(PokemonContext);
 
   const startGame = () => {
@@ -16,12 +25,30 @@ export default function Index() {
     Router.push("/pokemon");
   };
 
+  const navigateToAmp = () => {
+    window.location = "/?amp=1";
+  };
+
   return (
-    <div className="home-content">
-      <div className="logo-container-home">
-        <img src="/images/pokemon.png" alt="logo" />
-      </div>
-      <Button onClick={startGame}>Let's Begin</Button>
-    </div>
+    <>
+      <Head>
+        <title>Welcome To Pokemon Game Page</title>
+      </Head>
+
+      {!isAmp ? (
+        <Layout>
+          <div className="logo-container-home">
+            <img src="/images/pokemon.webp" alt="logo" />
+          </div>
+          <Button onClick={startGame}>Let's Begin</Button>
+
+          <Button onClick={navigateToAmp}>Switch To AMP</Button>
+        </Layout>
+      ) : (
+        <AmpHome startGame={startGame} />
+      )}
+    </>
   );
-}
+};
+
+export default HomePage;

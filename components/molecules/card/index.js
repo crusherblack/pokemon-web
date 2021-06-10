@@ -3,12 +3,12 @@ import { useContext, memo } from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import Image from "next/image";
 import Router from "next/router";
 import PropTypes from "prop-types";
 
 import { PokemonContext } from "@/context/pokemonContext";
+import { capitalizedText } from "@/utils/index";
 
 const CardComponent = ({ pokemon }) => {
   const [_s, dispatch] = useContext(PokemonContext);
@@ -36,16 +36,7 @@ const CardComponent = ({ pokemon }) => {
             layout="responsive"
             className="img"
           />
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="h4"
-            noWrap
-            align="center"
-            className="capitalize"
-          >
-            {name}
-          </Typography>
+          <h3 className="text-center">{capitalizedText(name)}</h3>
         </CardContent>
       </CardActionArea>
     </Card>

@@ -3,21 +3,18 @@ import { createContext, useReducer } from "react";
 export const PokemonContext = createContext();
 
 const initialState = {
-  pokeball: process.browser
-    ? localStorage.getItem("pokeball")
+  pokeball:
+    process.browser && localStorage.getItem("pokeball")
       ? parseInt(localStorage.getItem("pokeball"))
-      : 0
-    : 0,
-  catchedPokemons: process.browser
-    ? localStorage.getItem("catchedPokemons")
+      : 0,
+  catchedPokemons:
+    process.browser && localStorage.getItem("catchedPokemons")
       ? JSON.parse(localStorage.getItem("catchedPokemons"))
-      : []
-    : [],
-  currentImage: process.browser
-    ? localStorage.getItem("currentImage")
+      : [],
+  currentImage:
+    process.browser && localStorage.getItem("currentImage")
       ? localStorage.getItem("currentImage")
-      : ""
-    : "",
+      : "",
   name: "Fadhil Darma Putera Zagoto",
   gender: "Male",
 };

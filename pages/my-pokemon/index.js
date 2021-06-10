@@ -33,7 +33,7 @@ const MyPokemonPage = () => {
   };
 
   return (
-    <Layout withContainer>
+    <Layout withContainer title="My Pokemon's">
       <MyPokemon
         state={state}
         isVisible={isVisible}

@@ -26,7 +26,7 @@ const NavbarComponent = () => {
 
         <IconButton onClick={() => Router.push("/pokemon")}>
           <div className="logo-container">
-            <img src="/images/pokemon.png" alt="logo" />
+            <img src="/images/pokemon.webp" alt="logo" />
           </div>
         </IconButton>
 
@@ -37,7 +37,7 @@ const NavbarComponent = () => {
             color="secondary"
           >
             <img
-              src="/images/bag.png"
+              src="/images/bag.webp"
               alt="my-bag"
               style={{
                 width: "30px",

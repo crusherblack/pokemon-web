@@ -24,7 +24,7 @@ const MyPokemonComponent = ({
           {state.catchedPokemons.length}
         </h3>
         <div className="pokeball-count">
-          <img src="/images/pokebal.png" className="poke-count" />
+          <img src="/images/pokebal.webp" className="poke-count" />
           <h3>{state.pokeball} Left</h3>
         </div>
       </div>
@@ -73,7 +73,7 @@ const MyPokemonComponent = ({
         </div>
         {state.catchedPokemons.length <= 0 && (
           <div className="empty-pokemon-container">
-            <img src="/images/empty.png" alt="empty" />
+            <img src="/images/empty.webp" alt="empty" />
             <Button
               onClick={() => Router.push("/pokemon")}
               className="home-button"
@@ -84,7 +84,7 @@ const MyPokemonComponent = ({
         )}
         <Modal isVisible={isVisible} setIsVisible={setIsVisible}>
           <div className="result-container">
-            <img src="/images/pokebollremove.png" alt="catch" />
+            <img src="/images/pokebollremove.webp" alt="catch" />
             <h2 className="text-center font-weight-bold text-danger">
               Pokemon Released
             </h2>

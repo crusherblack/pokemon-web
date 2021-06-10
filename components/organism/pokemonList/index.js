@@ -26,16 +26,8 @@ const ListComponent = ({
       loader={
         !isFirstLoad && (
           <Grid container spacing={2} className="pokemon-list-container">
-            {[...Array(8)].map(item, (index) => (
-              <Grid
-                container
-                item
-                sm={6}
-                md={2}
-                lg={2}
-                xs={6}
-                key={pokemon.id + pokemon.name}
-              >
+            {[...Array(8)].map((_, index) => (
+              <Grid container item sm={6} md={2} lg={2} xs={6} key={index}>
                 <Skeleton />
               </Grid>
             ))}
@@ -55,7 +47,7 @@ const ListComponent = ({
       }
     >
       <Grid container spacing={2} className="pokemon-list-container">
-        {pokemonsData?.pokemons?.results.map((pokemon, index) => (
+        {pokemonsData?.pokemons?.results.map((pokemon) => (
           <Grid
             container
             item
@@ -74,12 +66,12 @@ const ListComponent = ({
 };
 
 ListComponent.propTypes = {
-  pokemonsLoading: PropTypes.bool.isRequired,
+  pokemonsLoading: PropTypes.bool,
   pokemonsData: PropTypes.object,
-  isLastPage: PropTypes.bool.isRequired,
-  isFirstLoad: PropTypes.bool.isRequired,
+  isLastPage: PropTypes.bool,
+  isFirstLoad: PropTypes.bool,
   pokemonsError: PropTypes.bool,
-  loadMorePosts: PropTypes.func.isRequired,
+  loadMorePosts: PropTypes.func,
 };
 
 export default ListComponent;

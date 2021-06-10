@@ -18,6 +18,7 @@ import PokemonDrawer from "@/components/organism/pokemonDetail/pokemonDrawer";
 import { PokemonContext } from "@/context/pokemonContext";
 import { client } from "@/utils/apollo/client";
 import { GET_POKEMON } from "@/utils/apollo/constant";
+import { capitalizedText } from "@/utils/index";
 
 const validationSchema = yup.object({
   pokemonName: yup
@@ -98,8 +99,10 @@ const PokemonDetailPage = ({ pokemon }) => {
     setPokemonName("");
   };
 
+  const pokemonCapitalizedName = capitalizedText(pokemon.name);
+
   return (
-    <Layout withContainer>
+    <Layout withContainer title={`${pokemonCapitalizedName} | Pokemons Detail`}>
       <section className="detail-pokemon-container">
         <PokemonInformation
           state={state}
@@ -113,7 +116,7 @@ const PokemonDetailPage = ({ pokemon }) => {
         <Modal
           isVisible={isVisible}
           setIsVisible={setIsVisible}
-          title={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+          title={pokemonCapitalizedName}
         >
           <PokemonImage
             pokemon={pokemon}

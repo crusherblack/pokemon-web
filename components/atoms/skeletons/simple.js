@@ -8,7 +8,7 @@ const SkeletonCardComponent = () => {
         width: "100%",
       }}
     >
-      <Skeleton variant="wave" width="100%" height={120} />
+      <Skeleton variant="rect" width="100%" height={120} />
     </div>
   );
 };

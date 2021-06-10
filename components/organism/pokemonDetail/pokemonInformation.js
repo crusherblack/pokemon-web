@@ -56,7 +56,7 @@ const PokemonInformationComponent = ({
       </section>
       <section className="pokeball-container">
         <IconButton onClick={() => setIsOpen(true)}>
-          <img src="/images/pokebal.png" alt="catchMe!!!" className="avatar" />
+          <img src="/images/pokebal.webp" alt="catchMe!!!" className="avatar" />
         </IconButton>
       </section>
     </section>

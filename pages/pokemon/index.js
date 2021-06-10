@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import { useLazyQuery } from "@apollo/client";
 
+import PokemonList from "@/components/organism/pokemonList";
 import Layout from "@/components/templates/layout";
 
-import PokemonList from "@/components/organism/pokemonList";
 import { GET_POKEMONS } from "@/utils/apollo/constant";
 
 const PokemonListPage = () => {
@@ -65,7 +65,7 @@ const PokemonListPage = () => {
   const memoizedPokemonsData = useMemo(() => pokemonsData, [pokemonsData]);
 
   return (
-    <Layout>
+    <Layout title="Pokemons List">
       <PokemonList
         pokemonsLoading={pokemonsLoading}
         pokemonsData={memoizedPokemonsData}

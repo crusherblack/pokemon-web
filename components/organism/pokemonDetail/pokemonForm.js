@@ -12,7 +12,7 @@ const PokemonFormComponent = ({
 }) => {
   return isPokeballZero ? (
     <div className="result-container">
-      <img src="/images/zeropokeball.png" alt="zero" />
+      <img src="/images/zeropokeball.webp" alt="zero" />
       <h2 className="text-center font-weight-bold text-danger ">
         You Are Run Out Of Pokeball
       </h2>
@@ -28,14 +28,14 @@ const PokemonFormComponent = ({
   ) : isCatch ? (
     <>
       <div className="result-container">
-        <img src="/images/catch.png" alt="catch" />
+        <img src="/images/catch.webp" alt="catch" />
         <h2 className="text-center font-weight-bold ">Success Catch</h2>
       </div>
       <div>
         <form onSubmit={formik.handleSubmit}>
           <TextField
             id="outlined-basic"
-            label="Give Your Pokemon's Name"
+            label="Give Your Pokemon's Nickname"
             variant="outlined"
             color="secondary"
             name="pokemonName"
@@ -61,7 +61,7 @@ const PokemonFormComponent = ({
     </>
   ) : (
     <div className="result-container" onClick={() => setIsResult(false)}>
-      <img src="/images/notcatch.jpg" alt="fail" />
+      <img src="/images/notcatch.webp" alt="fail" />
       <h2 className="text-center font-weight-bold ">Fail To Catch</h2>
     </div>
   );
