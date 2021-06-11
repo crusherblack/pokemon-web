@@ -17,7 +17,7 @@ const ListComponent = ({
   return pokemonsLoading ? (
     <Loading />
   ) : pokemonsError ? (
-    <h1>error please refresh the page</h1>
+    <h1>{JSON.stringify(pokemonsError)}</h1>
   ) : (
     <InfiniteScroll
       dataLength={pokemonsData?.pokemons?.results.length ?? 0}
@@ -46,7 +46,12 @@ const ListComponent = ({
         </p>
       }
     >
-      <Grid container spacing={2} className="pokemon-list-container">
+      <Grid
+        container
+        spacing={2}
+        className="pokemon-list-container poke-card"
+        data-testid="list-pokemons"
+      >
         {pokemonsData?.pokemons?.results.map((pokemon) => (
           <Grid
             container
@@ -70,7 +75,7 @@ ListComponent.propTypes = {
   pokemonsData: PropTypes.object,
   isLastPage: PropTypes.bool,
   isFirstLoad: PropTypes.bool,
-  pokemonsError: PropTypes.bool,
+  pokemonsError: PropTypes.object,
   loadMorePosts: PropTypes.func,
 };
 

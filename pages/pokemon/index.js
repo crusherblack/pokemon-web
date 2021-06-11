@@ -6,8 +6,11 @@ import Layout from "@/components/templates/layout";
 
 import { GET_POKEMONS } from "@/utils/apollo/constant";
 
+const prod = process.env.NODE_ENV === "production";
+const dev = process.env.NODE_ENV === "development";
+
 const PokemonListPage = () => {
-  const PAGE_LIMIT = 20;
+  const PAGE_LIMIT = prod || dev ? 20 : 2;
   const [offset, setOffset] = useState(0);
   const [isLastPage, setIsLastPage] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
