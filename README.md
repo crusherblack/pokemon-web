@@ -1,7 +1,12 @@
 # Welcome
+
 ## Pokemon Simple Web App
 
-## DEMO [LINK](https://pokemon-web-mu.vercel.app/).
+## DEMO [LINK](https://pokemon-web-mu.vercel.app/)
+
+![Pokemon Web UI](/screenshot/pokemon-ui.png)
+![LightHouse 1](/screenshot/list.png)
+![LightHouse 2](/screenshot/detail.png)
 
 First, Install Dependencies:
 
@@ -34,17 +39,14 @@ npm run build
 ## Features
 
 - Using Material UI, Sass and Emotion
-- Using React Hooks 
+- Using React Hooks
 - Support Static Page, PWA, AMP and SSR
 - Using Apollo Client
 - Sitemap Automatic Generated
 - SEO by Next SEO
-
 
 ## License
 
 MIT
 
 **Free Software, Hell Yeah!**
-
-
